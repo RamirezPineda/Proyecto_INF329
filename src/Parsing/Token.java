@@ -20,7 +20,7 @@ public class Token {
     public static final int REPEAT     = 15;
     public static final int UNTIL      = 16;
     public static final int READLN     = 17;
-    public static final int WRITELN    = 18;
+    public static final int WRITELN    = 18;     //PRINTLN
     public static final int NOT        = 19;     //"not"
     public static final int AND        = 20;     //"and"
     public static final int OR         = 21;     //"or"

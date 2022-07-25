@@ -18,16 +18,38 @@ procedure proc2;
 begin
   i := 1; 
   n := i + 9; 
+  if ( i > 1) then
+   begin
+     writeln("Hola mundo");
+     i := 1;
+   end
+  else
+   begin
+     writeln("otro texto de prueba");
+     readln(n);
+   end;
+
   while (i <= n) do
   begin
-    if i mod 2 = 0
+    if (i mod 2 = 0)
        then
-         println("Es par")
+         writeln("Es par");
        else
-         println(i, " es impar");
+         writeln(i, " es impar");
   end;
 
+  readln(n);
   algo();
+
+  REPEAT
+     if (n mod 2 = 1) then
+     begin
+        writeln(n, "es impar");
+     end;
+     while (n < 100) do
+  	n := n + 1;
+  UNTIL (i <= 10);
+
 end;
 
 {Sección Main (Obligado)}
@@ -38,4 +60,6 @@ BEGIN
   begin
     proc2(); 
   end; 
+for z:= 50 DOWNTO 0 DO
+    proc2(); 
 END.

@@ -9,6 +9,13 @@
             <file>file:/E:/GINO/UAGRM/Compiladores/Analex/Analex/src/analex/Interfaz.java</file>
             <file>file:/E:/GINO/UAGRM/Compiladores/Analex/Analex/src/analex/Analex.java</file>
         </group>
-        <group/>
+        <group>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/Parser.java</file>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/Cinta.java</file>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/Main.java</file>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/Token.java</file>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/Analex.java</file>
+            <file>file:/C:/Users/RYAN%20RAMIREZ%20PINEDA/Documents/NetBeansProjects/Proyecto_INF329/src/Parsing/ErrorMgr.java</file>
+        </group>
     </open-files>
 </project-private>
