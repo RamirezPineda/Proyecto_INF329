@@ -1,1 +1,1 @@
-# rickyrp-Proyecto_INF329
+# Proyecto_INF329 Compiladores
