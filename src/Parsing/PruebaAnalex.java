@@ -51,108 +51,169 @@ public class PruebaAnalex extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        textArea = new javax.swing.JTextArea();
-        btnAvanzar = new javax.swing.JButton();
-        labelError = new java.awt.Label();
-        btnInit = new javax.swing.JButton();
-        labelLexema = new javax.swing.JLabel();
-        labelPreanalisis = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         btnEjemplo = new javax.swing.JButton();
         btnAbrir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
+        labelError = new java.awt.Label();
+        labelPreanalisis = new javax.swing.JLabel();
+        labelLexema = new javax.swing.JLabel();
+        btnAvanzar = new javax.swing.JButton();
+        btnInit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        textArea.setColumns(20);
-        textArea.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
-        textArea.setRows(5);
-        jScrollPane1.setViewportView(textArea);
+        jPanel1.setBackground(new java.awt.Color(57, 62, 70));
 
-        btnAvanzar.setText("Analex.Avanzar( );");
-        btnAvanzar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAvanzarActionPerformed(evt);
-            }
-        });
-
-        labelError.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        labelError.setForeground(new java.awt.Color(153, 51, 0));
-        labelError.setText("labelError");
-
-        btnInit.setText("Analex.Init( );");
-        btnInit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnInitActionPerformed(evt);
-            }
-        });
-
-        labelLexema.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        labelLexema.setText("labelLexema");
-
-        labelPreanalisis.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        labelPreanalisis.setText("labelPreanalisis");
-
+        btnEjemplo.setBackground(new java.awt.Color(45, 125, 207));
+        btnEjemplo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnEjemplo.setForeground(new java.awt.Color(255, 255, 255));
         btnEjemplo.setText("Cargar Ejemplo");
+        btnEjemplo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnEjemploMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnEjemploMouseExited(evt);
+            }
+        });
         btnEjemplo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEjemploActionPerformed(evt);
             }
         });
 
+        btnAbrir.setBackground(new java.awt.Color(45, 125, 207));
+        btnAbrir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
         btnAbrir.setText("Abrir..");
+        btnAbrir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAbrirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAbrirMouseExited(evt);
+            }
+        });
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnInit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAvanzar, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(labelLexema, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelPreanalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+        textArea.setBackground(new java.awt.Color(237, 237, 237));
+        textArea.setColumns(20);
+        textArea.setFont(new java.awt.Font("Courier New", 0, 13)); // NOI18N
+        textArea.setRows(5);
+        jScrollPane1.setViewportView(textArea);
+
+        labelError.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        labelError.setForeground(new java.awt.Color(216, 40, 50));
+        labelError.setText("labelError");
+
+        labelPreanalisis.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelPreanalisis.setForeground(new java.awt.Color(255, 255, 255));
+        labelPreanalisis.setText("labelPreanalisis");
+
+        labelLexema.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        labelLexema.setForeground(new java.awt.Color(255, 255, 255));
+        labelLexema.setText("labelLexema");
+
+        btnAvanzar.setBackground(new java.awt.Color(45, 125, 207));
+        btnAvanzar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAvanzar.setForeground(new java.awt.Color(255, 255, 255));
+        btnAvanzar.setText("Analex.Avanzar( );");
+        btnAvanzar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAvanzarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAvanzarMouseExited(evt);
+            }
+        });
+        btnAvanzar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvanzarActionPerformed(evt);
+            }
+        });
+
+        btnInit.setBackground(new java.awt.Color(45, 125, 207));
+        btnInit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnInit.setForeground(new java.awt.Color(255, 255, 255));
+        btnInit.setText("Analex.Init( );");
+        btnInit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnInitMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnInitMouseExited(evt);
+            }
+        });
+        btnInit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInitActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnEjemplo)
                                 .addGap(30, 30, 30)
                                 .addComponent(btnAbrir))
                             .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 526, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnAvanzar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnInit, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelLexema, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelPreanalisis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnEjemplo)
                     .addComponent(btnAbrir))
                 .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btnInit)
                         .addGap(44, 44, 44)
                         .addComponent(btnAvanzar)
                         .addGap(41, 41, 41)
                         .addComponent(labelLexema)
                         .addGap(41, 41, 41)
-                        .addComponent(labelPreanalisis)
-                        .addGap(0, 104, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelPreanalisis))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -214,6 +275,46 @@ public class PruebaAnalex extends javax.swing.JFrame {
             textArea.setCaretPosition(0);
         }catch(Exception e) {};
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void btnEjemploMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEjemploMouseEntered
+        // TODO add your handling code here:
+        btnEjemplo.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnEjemploMouseEntered
+
+    private void btnAbrirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAbrirMouseEntered
+        // TODO add your handling code here:
+        btnAbrir.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnAbrirMouseEntered
+
+    private void btnInitMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInitMouseEntered
+        // TODO add your handling code here:
+        btnInit.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnInitMouseEntered
+
+    private void btnAvanzarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAvanzarMouseEntered
+        // TODO add your handling code here:
+        btnAvanzar.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnAvanzarMouseEntered
+
+    private void btnEjemploMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEjemploMouseExited
+        // TODO add your handling code here:
+        btnEjemplo.setBackground(new Color(45,125,207));
+    }//GEN-LAST:event_btnEjemploMouseExited
+
+    private void btnAbrirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAbrirMouseExited
+        // TODO add your handling code here:
+        btnAbrir.setBackground(new Color(45,125,207));
+    }//GEN-LAST:event_btnAbrirMouseExited
+
+    private void btnInitMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInitMouseExited
+        // TODO add your handling code here:
+        btnInit.setBackground(new Color(45,125,207));
+    }//GEN-LAST:event_btnInitMouseExited
+
+    private void btnAvanzarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAvanzarMouseExited
+        // TODO add your handling code here:
+        btnAvanzar.setBackground(new Color(45,125,207));
+    }//GEN-LAST:event_btnAvanzarMouseExited
 
     private void mostrarResults(){
         labelLexema.setText("Lexema: "+analex.lexema());
@@ -297,6 +398,7 @@ public class PruebaAnalex extends javax.swing.JFrame {
     private javax.swing.JButton btnAvanzar;
     private javax.swing.JButton btnEjemplo;
     private javax.swing.JButton btnInit;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Label labelError;
     private javax.swing.JLabel labelLexema;

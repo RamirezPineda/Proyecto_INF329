@@ -2,7 +2,7 @@ package Parsing;
 
 /**@param Ricky Roy Ramirez Pineda
  * 218158254
- * INF329-SA
+ * INF329-SA (Compiladores)
  * 25/07/2022 0:50
  * Horas invertidas: 12 hrs
  **/
@@ -71,7 +71,7 @@ public class Parser {
         match(Token.BEGIN, "Se espera BEGIN");
         sentencia(); //El bloque puede estar vacío (lambda)
         match(Token.END, "Se espera END");
-        match(Token.PTO, "Se espera un .");
+        match(Token.PTO, "Falta .");
     }
     
     private void match(int tokenNom, String errorMsj){
@@ -111,12 +111,12 @@ public class Parser {
         masID();
         match(Token.DOSPTOS, "Se espera :");
         match(Token.TIPO, "Se espera un TIPO");
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PTOCOMA, "Falta ;");
     }
 
     private void masID() {
         if (analex.preNom() == Token.COMA) { //1era seccion
-            match(Token.COMA, "Se espera ;");
+            match(Token.COMA, "Falta ,");
             match(Token.ID, "Se espera un ID");
             masID();
         } //else lambda 2da seccion
@@ -128,11 +128,11 @@ public class Parser {
         if (analex.preNom() == Token.PROCEDURE) { //1era seccion
             match(Token.PROCEDURE, "Se espera PROCEDURE");
             match(Token.ID, "Se espera un ID");
-            match(Token.PTOCOMA, "Se espera ;");
+            match(Token.PTOCOMA, "Falta ;");
             match(Token.BEGIN, "Se espera BEGIN");
             sentencia();
             match(Token.END, "Se espera END");
-            match(Token.PTOCOMA, "Se espera ;");
+            match(Token.PTOCOMA, "Falta ;");
         } //else lambda 2da seccion
     }
      
@@ -244,42 +244,43 @@ public class Parser {
     
     private void asignacion() { //i := 5 + (2 + x);
         //match(Token.ID, "Se espera un ID");//hago macth en asignacionLlamada()
-        match(Token.ASSIGN, "Se espera un :=");
+        match(Token.ASSIGN, "Falta :=");
         expr();
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PTOCOMA, "Falta ;");
     }
     
     //==============================BNF LLAMADA=================================  
     
     private void llamada() {
         //match(Token.ID, "Se espera un ID"); //hago macth en asignacionLlamada()
-        match(Token.PA, "Se espera (");
-        match(Token.PC, "Se espera )");
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PA, "Falta (");
+        match(Token.PC, "Falta )");
+        match(Token.PTOCOMA, "Falta ;");
     }  
     
     //=============================BNF CONDICIONAL==============================
     
     private void condicional() {
         match(Token.IF, "Se espera IF");      
-        match(Token.PA, "Se espera (");
-        System.out.println("holaaa");
+        match(Token.PA, "Falta (");
+        //System.out.println("holaaa");
         exprBool();
-        match(Token.PC, "Se espera )");
+        match(Token.PC, "Falta )");
         match(Token.THEN, "Se espera THEN");
         condicional1(); 
     }
     
     private void condicional1() {
-        if (analex.preNom() == Token.BEGIN) { //2da seccion
+        if (analex.preNom() == Token.ID || analex.preNom() == Token.READLN
+                || analex.preNom() == Token.WRITELN) { //1era seccion
+            sentenciaUnica(); //Sentencia unica
+            condicional2();
+        } else {//2da seccion
             match(Token.BEGIN, "Se espera BEGIN");
             sentencia();
             match(Token.END, "Se espera END");
             condicional3();
-            match(Token.PTOCOMA, "Se espera ;");
-        } else {//1er seccion
-            sentenciaUnica(); //Sentencia unica
-            condicional2();
+            match(Token.PTOCOMA, "Falta ;");
         }
         
     }
@@ -305,7 +306,7 @@ public class Parser {
     private void bucleFor(){
         match(Token.FOR, "Se espera FOR");
         match(Token.ID, "Se espera un ID");
-        match(Token.ASSIGN, "Se espera :=");
+        match(Token.ASSIGN, "Falta :=");
         expr();
         bucleFor1();
         expr();
@@ -321,13 +322,14 @@ public class Parser {
     }
 
     private void bucleFor2() {
-        if (analex.preNom() == Token.BEGIN) {
+        if (analex.preNom() == Token.ID || analex.preNom() == Token.READLN
+                || analex.preNom() == Token.WRITELN) {//1era seccion
+            sentenciaUnica();
+        } else {//2da seccion
             match(Token.BEGIN, "Se espera BEGIN");
             sentencia();
             match(Token.END, "Se espera END");
-            match(Token.PTOCOMA, "Se espera ;");
-        } else {
-            sentenciaUnica();
+            match(Token.PTOCOMA, "Falta ;");
         }
         
     }
@@ -336,21 +338,22 @@ public class Parser {
     
     private void bucleWhile(){
         match(Token.WHILE, "Se espera WHILE");
-        match(Token.PA, "Se espera (");
+        match(Token.PA, "Falta (");
         exprBool();
-        match(Token.PC, "Se espera )");
+        match(Token.PC, "Falta )");
         match(Token.DO, "Se espera DO");
         bucleWhile1();
     }
     
     private void bucleWhile1() {
-        if (analex.preNom() == Token.BEGIN) {//2da seccion
+        if (analex.preNom() == Token.ID || analex.preNom() == Token.READLN
+                || analex.preNom() == Token.WRITELN) {//1era seccion
+            sentenciaUnica();//unica sentencia
+        } else {//2da seccion
             match(Token.BEGIN, "Se espera BEGIN");
             sentencia();
             match(Token.END, "Se espera END");
-            match(Token.PTOCOMA, "Se espera ;");
-        } else {
-            sentenciaUnica();//unica sentencia
+            match(Token.PTOCOMA, "Falta ;");
         }
     }
     
@@ -360,37 +363,37 @@ public class Parser {
         match(Token.REPEAT, "Se espera REPEAT");
         sentencia();
         match(Token.UNTIL, "Se espera UNTIL");
-        match(Token.PA, "Se espera (");
+        match(Token.PA, "Falta (");
         exprBool();
-        match(Token.PC, "Se espera )");
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PC, "Falta )");
+        match(Token.PTOCOMA, "Falta ;");
     } 
     
     //==============================BNF LECTURA=================================
     
     private void lectura() {
         match(Token.READLN, "Se espera READLN");
-        match(Token.PA, "Se espera (");
+        match(Token.PA, "Falta (");
         match(Token.ID, "Se espera ID");
         masID();
-        match(Token.PC, "Se espera )");
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PC, "Falta )");
+        match(Token.PTOCOMA, "Falta ;");
     }
     
     //=============================BNF IMPRESION================================ 
     
     private void impresion() {
         match(Token.WRITELN, "Se espera un WRITELN");
-        match(Token.PA, "Se espera (");
+        match(Token.PA, "Falta (");
         elem();
         masElem();
-        match(Token.PC, "Se espera )");
-        match(Token.PTOCOMA, "Se espera ;");
+        match(Token.PC, "Falta )");
+        match(Token.PTOCOMA, "Falta ;");
     }
     
     private void masElem() {
         if (analex.preNom() == Token.COMA) {
-            match(Token.COMA, "Se espera ,");
+            match(Token.COMA, "Falta ,");
             elem();
             masElem();
         } //else 2da seccion lambda
@@ -474,9 +477,9 @@ public class Parser {
                 factor();
                 break;
             default:  //quinta seccion
-                match(Token.PA, "Se espera (");
+                match(Token.PA, "Falta (");
                 expr();
-                match(Token.PC, "Se espera )");
+                match(Token.PC, "Falta )");
                 break;
         }
     }
@@ -487,9 +490,7 @@ public class Parser {
       *     FactorBool --> Expr OPREL Expr | (ExprBool) | NOT FactorBool
       * en la seccion Expr OPREL Expr y (ExprBool) ya que en ambas secciones 
       * su FIRST contienen "(" 
-      * @param Decedi quitar la seccion (ExprBool) y por consecuencia todos los 
-      * if, while, repeat necesitan de los parentesis "()" para poder funcionar
-      * correctamente.
+      * @param Decedi quitar la seccion (ExprBool) para quitar la ambiguedad
       La produccion FactorBool quedaria asi:
             FactorBool --> Expr OPREL Expr | NOT FactorBooL*/
     private void exprBool() {
@@ -524,7 +525,7 @@ public class Parser {
             factorBool();
         } else { //1era seccion
             expr();
-            match(Token.OPREL, "Se espera OPREL");
+            match(Token.OPREL, "Se espera un  OPREL");
             expr();
         }
     }

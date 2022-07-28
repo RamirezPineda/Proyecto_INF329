@@ -22,13 +22,13 @@ public class Interfaz extends javax.swing.JFrame {
         parser = new Parser(){
             @Override
             public void onComunicar(int posLexema, int longitud, String errorMsg){
-                if (hayError()){
-                    labelError.setForeground(Color.red);
+                if (hayError()) {
+                    labelError.setForeground(new Color(216, 40, 50));
                     labelError.setText(errorMsg);
                     resaltar(posLexema, longitud);
                 }
                 else{
-                    labelError.setForeground(Color.BLUE);
+                    labelError.setForeground(new Color(63, 114, 175));
                     labelError.setText("No se encontraron errores");
                 }
             } 
@@ -63,66 +63,109 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
-        btnParse = new javax.swing.JButton();
         labelError = new java.awt.Label();
+        btnParse = new javax.swing.JButton();
         btnAbrir = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(0, 0, 0));
+        setForeground(new java.awt.Color(255, 255, 255));
 
+        jPanel1.setBackground(new java.awt.Color(57, 62, 70));
+        jPanel1.setForeground(new java.awt.Color(13, 36, 51));
+
+        jScrollPane1.setBackground(new java.awt.Color(13, 36, 51));
+
+        textArea.setBackground(new java.awt.Color(237, 237, 237));
         textArea.setColumns(20);
         textArea.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
         textArea.setRows(5);
         jScrollPane1.setViewportView(textArea);
 
+        labelError.setFont(new java.awt.Font("Courier New", 1, 16)); // NOI18N
+        labelError.setText("labelError");
+
+        btnParse.setBackground(new java.awt.Color(40, 120, 207));
+        btnParse.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnParse.setForeground(new java.awt.Color(255, 255, 255));
         btnParse.setText("Parse");
+        btnParse.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnParse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnParseMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnParseMouseExited(evt);
+            }
+        });
         btnParse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParseActionPerformed(evt);
             }
         });
 
-        labelError.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        labelError.setText("labelError");
-
+        btnAbrir.setBackground(new java.awt.Color(45, 125, 207));
+        btnAbrir.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAbrir.setForeground(new java.awt.Color(255, 255, 255));
         btnAbrir.setText("Abrir...");
+        btnAbrir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAbrir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAbrirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAbrirMouseExited(evt);
+            }
+        });
         btnAbrir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAbrirActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnParse)
-                .addGap(20, 20, 20))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAbrir)
-                    .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE))
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnParse)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnAbrir)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 659, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(btnAbrir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelError, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnParse)
-                .addContainerGap())
+                .addGap(21, 21, 21))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -154,6 +197,26 @@ public class Interfaz extends javax.swing.JFrame {
             textArea.setCaretPosition(0);
         }catch(Exception e) {};
     }//GEN-LAST:event_btnAbrirActionPerformed
+
+    private void btnAbrirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAbrirMouseEntered
+        // TODO add your handling code here:
+       btnAbrir.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnAbrirMouseEntered
+
+    private void btnAbrirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAbrirMouseExited
+        // TODO add your handling code here:
+        btnAbrir.setBackground(new Color(45,125,207));
+    }//GEN-LAST:event_btnAbrirMouseExited
+
+    private void btnParseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParseMouseEntered
+        // TODO add your handling code here:
+        btnParse.setBackground(new Color(38,102,207));
+    }//GEN-LAST:event_btnParseMouseEntered
+
+    private void btnParseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnParseMouseExited
+        // TODO add your handling code here:
+        btnParse.setBackground(new Color(40,120,207));
+    }//GEN-LAST:event_btnParseMouseExited
 
     
     private void setEventosModificacion(JTextArea textArea){
@@ -222,6 +285,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JButton btnAbrir;
     private javax.swing.JButton btnParse;
     private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Label labelError;
     private javax.swing.JTextArea textArea;
