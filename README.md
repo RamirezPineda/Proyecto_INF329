@@ -1,6 +1,6 @@
 ## Proyecto INF 329 (Compiladores)
 
-1. **Cuerpo**
+**1. Cuerpo**
 * BNF
 
 		cuerpo --> cuerpo1 cuerpo | lambda
@@ -11,7 +11,7 @@
 		F(cuerpo1) = {VAR, PROCEDURE, lambda}
 		F(cuerpo) = {VAR, PROCEDURE, lambda}
 
-2. **Declaración**
+**2. Declaración**
 * BNF
 
 		declaracion --> VAR linea masLinea
@@ -26,7 +26,7 @@
 		F(masLinea) = {ID, lambda}
 		F(declaracion) = {VAR}
 
-3. **Asignacion-Llamada**
+**3. Asignacion-Llamada**
 * BNF
 
 		asignacionLlamada --> ID combinacion
@@ -37,18 +37,18 @@
 		F(combinacion) = {:=, (}
 		F(asignacionLlamada) = {ID}
 
-4. **Asignación**
+**4. Asignación**
 * BNF
 
 		asignacion --> := Expr; masAsignacion
 		masAsignacion --> ID asignacion masAsignacion;
 
-5. **Llamada**
+**5. Llamada**
 * BNF
 
 		llamada --> ();
 
-6. **Condicional**
+**6. Condicional**
 * BNF
 
 		condicional --> IF (ExprBoole) THEN condicional1
@@ -56,7 +56,7 @@
 		condicioanl2 --> else sentenciaUnica | lambda
 		condicional3 --> else BEGIN sentencia END | lambda
 
-7. **Impresión** 
+**7. Impresión** 
 * BNF
 
 		impresion --> WRITELN (elem masElem);
@@ -70,31 +70,31 @@
 		bucleFor1 --> TO | DOWNTO
 		bucleFor2 --> BEGIN sentencia END; | sentenciaUnica
 
-9. **Bucle While**
+**9. Bucle While**
 * BNF
 
 		bucleWhile --> WHILE ExprBoole DO bucleWhile1
 		bucleWhile1 --> setenciaUnica | BEGIN sentencia END;
 
-10. **Bucle Repeat-Until**
+**10. Bucle Repeat-Until**
 * BNF
 
 		bucleRepeat --> REPEAT sentencia UNTIL ExprBoole;
 
-11. **Lectura**
+**11. Lectura**
 * BNF
 
 		lectura --> READLN (ID masID);
 		masID --> , ID masID | lambda
 
-12. **Sentencia**
+**12. Sentencia**
 * BNF
 
 		sentencia --> sentencia1 masSentencia
 		sentencia1 --> 
 		masSentencia --> sentencia masSentencia | lambda
 
-13. **Sentencia Única**
+**13. Sentencia Única**
 * BNF
 
 		sentenciaUnica --> asignacionLlamada | lectura | impresion
@@ -103,7 +103,7 @@
 
 		F(sentenciaUnica) = {ID, READLN, WRITELN}
 
-14. **Expresión Aritmética**
+**14. Expresión Aritmética**
 * BNF
 
 		Expr --> Termino Expr2
@@ -124,7 +124,7 @@
 		F(Expr2) = {+, -, lambda}
 		F(Expr) = {ID, NUM, -, +, (}
 
-15. **Expresión Boole**
+**15. Expresión Boole**
 * BNF
 
 		ExprBoole --> TermBoole ExprBoole1 
